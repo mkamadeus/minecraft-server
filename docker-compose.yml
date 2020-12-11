@@ -18,5 +18,6 @@ services:
       USE_AIKAR_FLAGS: "true"
       SEED: "-5256854541870744071"
       OPS: "Myx"
+      JVM_XX_OPTS: "-XX+UseG1GC -XX:ParallelGCThreads=1 -XX:ActiveProcessorCount=8"
 volumes:
   mc:
