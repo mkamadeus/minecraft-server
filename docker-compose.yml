@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  mcserver:
+    image: itzg/minecraft-server
+    container_name: mcserver
+    ports:
+    - "8080:25565"
+    volumes:
+      - "./data:/data"
+    environment:
+      EULA: "TRUE"
+      TYPE: "FABRIC"
+      ENABLE_AUTOPAUSE: "TRUE"
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      MAX_TICK_TIME: "-1"
+      ONLINE_MODE: "FALSE"
+      MOTD: "Anjayy"
+      USE_AIKAR_FLAGS: "true"
+      SEED: "-5256854541870744071"
+      OPS: "Myx"
+volumes:
+  mc:
