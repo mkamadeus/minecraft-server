@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   mcserver:
-    image: itzg/minecraft-server:adopt13
+    image: itzg/minecraft-server
     container_name: mcserver
     ports:
     - "6969:25565"
@@ -18,6 +18,6 @@ services:
       USE_AIKAR_FLAGS: "true"
       SEED: "-5256854541870744071"
       OPS: "Myx"
-      JVM_XX_OPTS: "-XX+UseG1GC -XX:ParallelGCThreads=1 -XX:ActiveProcessorCount=8"
+      JVM_XX_OPTS: "-XX:+UseG1GC -XX:ParallelGCThreads=1 -XX:ActiveProcessorCount=8"
 volumes:
   mc:
