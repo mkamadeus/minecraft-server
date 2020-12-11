@@ -4,7 +4,7 @@ services:
     image: itzg/minecraft-server
     container_name: mcserver
     ports:
-    - "8080:25565"
+    - "6969:25565"
     volumes:
       - "./data:/data"
     environment:
