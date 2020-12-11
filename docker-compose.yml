@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   mcserver:
-    image: itzg/minecraft-server
+    image: itzg/minecraft-server:adopt13
     container_name: mcserver
     ports:
     - "6969:25565"
