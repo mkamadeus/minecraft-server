@@ -7,6 +7,9 @@ services:
     - "25565:25565"
     volumes:
       - "./data:/data"
+      - "./mods:/data/mods"
+      - "./config:/data/config"
+      - "./datapacks:/data/world/datapacks"
     environment:
       EULA: "TRUE"
       TYPE: "FABRIC"
@@ -14,9 +17,9 @@ services:
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
       MAX_TICK_TIME: "-1"
       ONLINE_MODE: "FALSE"
-      MOTD: "Anjayy"
+      MOTD: "A Fabric Minecraft Server"
       USE_AIKAR_FLAGS: "true"
       SEED: "-5256854541870744071"
       OPS: "Myx"
-volumes:
-  mc:
+      MEMORY: "1536M"
+      VIEW_DISTANCE: 12
