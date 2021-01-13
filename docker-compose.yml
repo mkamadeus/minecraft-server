@@ -1,10 +1,10 @@
-version: '3.7'
+version: "3.7"
 services:
   mcserver:
     image: itzg/minecraft-server
     container_name: mcserver
     ports:
-    - "25565:25565"
+      - "25565:25565"
     volumes:
       - "./data:/data"
       - "./mods:/data/mods"
@@ -14,6 +14,7 @@ services:
       EULA: "TRUE"
       TYPE: "FABRIC"
       ENABLE_AUTOPAUSE: "TRUE"
+      ENABLE_COMMAND_BLOCK: "TRUE"
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
       MAX_TICK_TIME: "-1"
       ONLINE_MODE: "FALSE"
