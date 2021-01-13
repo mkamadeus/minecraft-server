@@ -9,7 +9,7 @@ services:
       - "./data:/data"
       - "./mods:/data/mods"
       - "./config:/data/config"
-      - "./datapacks:/data/world/datapacks"
+      # - "./datapacks:/data/world/datapacks"
     environment:
       EULA: "TRUE"
       TYPE: "FABRIC"
