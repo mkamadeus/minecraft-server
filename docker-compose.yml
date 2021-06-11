@@ -22,6 +22,6 @@ services:
       USE_AIKAR_FLAGS: "true"
       SEED: "1777181425785"
       OPS: "Myx"
-      MEMORY: "1536M"
+      MEMORY: "1G"
       VERSION: "1.17"
       VIEW_DISTANCE: 12
