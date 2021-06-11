@@ -20,7 +20,8 @@ services:
       ONLINE_MODE: "FALSE"
       MOTD: "A Fabric Minecraft Server"
       USE_AIKAR_FLAGS: "true"
-      SEED: "-5256854541870744071"
+      SEED: "1777181425785"
       OPS: "Myx"
       MEMORY: "1536M"
+      VERSION: "1.17"
       VIEW_DISTANCE: 12
