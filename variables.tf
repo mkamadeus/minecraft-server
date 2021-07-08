@@ -1,29 +1,40 @@
+variable "api_key" {
+  type        = string
+  description = "Vultr API key"
+}
+
 variable "plan" {
-  type = "string"
+  type        = string
   description = "Vultr instance plan slug"
-  default = "vdc-1c-2gb"
+  default     = "vdc-1c-2gb"
 }
 
 variable "region" {
-  type = "string"
+  type        = string
   description = "Vultr instance region slug"
-  default = "sea"
+  default     = "sea"
 }
 
 variable "os_id" {
-  type = "string"
+  type        = string
   description = "Vultr OS ID slug"
-  default = "167"
+  default     = "167"
 }
 
 variable "label" {
-  type = "string"
+  type        = string
   description = "Vultr instance label"
-  default = "minecraft-server"
+  default     = "minecraft-server"
 }
 
 variable "tag" {
-  type = "string"
+  type        = string
   description = "Vultr instance tag"
-  default = "minecraft"
+  default     = "minecraft"
+}
+
+variable "hostname" {
+  type        = string
+  description = "Vultr instance tag"
+  default     = "minecraft"
 }
