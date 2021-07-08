@@ -1,1 +1,11 @@
 /data
+
+.terraform/
+
+*.tfstate
+*.tfstate.*
+
+*.tfvars
+
+.env*
+!.env.example
