@@ -6,7 +6,7 @@ variable "api_key" {
 variable "plan" {
   type        = string
   description = "Vultr instance plan slug"
-  default     = "vdc-1c-2gb"
+  default     = "vc2-1c-2gb"
 }
 
 variable "region" {
