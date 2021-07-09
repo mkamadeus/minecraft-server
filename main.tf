@@ -21,26 +21,15 @@ resource "vultr_instance" "minecraft" {
   tag      = var.tag
   hostname = var.hostname
 
-  # Copy scripts
-  provisioner "file" {
-    source      = "./scripts"
-    destination = "~/scripts"
+  # Make zip of required files
+  provisioner "local-exec" {
+    command = "zip game.zip config datapacks mods scripts docker-compose.yml .env"
   }
 
-  # Copy required files for server
+  # Copy zip
   provisioner "file" {
-    source      = "./game-config"
-    destination = "~/game-config"
-  }
-
-  provisioner "file" {
-    source      = "./.env"
-    destination = "~/.env"
-  }
-
-  provisioner "file" {
-    source      = "./docker-compose.yml"
-    destination = "~/docker-compose.yml"
+    source      = "./game.zip"
+    destination = "~/game.zip"
   }
 
   provisioner "remote-exec" {
@@ -72,4 +61,18 @@ resource "vultr_firewall_rule" "minecraft_firewall_rule" {
   notes             = "Minecraft basic TCP firewall rule"
 }
 
+# SSH keys
+resource "tls_private_key" "generated" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "vultr_ssh_key" "minecraft_ssh_key" {
+  name = "mc-ssh-key"
+  ssh_key = tls_private_key.generated.public_key_openssh
+  
+  provisioner "local-exec" {
+    command = "echo '${tls_private_key.generated.private_key_pem}' > ./key.pem"
+  }
+}
 
