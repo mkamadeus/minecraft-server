@@ -25,7 +25,7 @@ resource "vultr_instance" "minecraft" {
 
   # Make zip of required files
   provisioner "local-exec" {
-    command = "zip game.zip config datapacks mods docker-compose.yml .env"
+    command = "zip -r game config datapacks mods docker-compose.yml .env"
   }
 
   # Copy scripts folder

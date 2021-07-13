@@ -6,16 +6,23 @@
 
 ## Aim
 
-Able to provision a Fabric Minecraft Server with datapacks and mods, using Terraform to multiple providers. Currently targetting for provisioning Vultr instance.
+Able to provision a Fabric Minecraft Server with datapacks and mods, using Terraform to multiple providers. I most likely will jump from one provider to another, this would be great for me. To make changes to the server, for me it's enough to just SSH to the server and restart it manually (happens rarely). Currently targetting for provisioning Vultr instance.
 
 ## Features
 
 - Automatic provisioning using Terraform
-- Using the [itzg/minecraft-server](https://github.com/itzg/docker-minecraft-server/) image
 - Automated initial SSH key generation
+- Using the [itzg/minecraft-server](https://github.com/itzg/docker-minecraft-server/) image
+- Able to use mods and datapacks easily
 - (WIP) Backup of worlds
 
 ## Provisioning
+
+Make sure what to provision before actually provisioning by typing:
+
+```bash
+terraform plan -var "api_key=XXX"
+```
 
 To provision a new Vultr instance:
 
@@ -23,6 +30,14 @@ To provision a new Vultr instance:
 terraform apply -var "api_key=XXX"
 ```
 
-## Notice
+Some files will be generated (including the `game.zip`, containing the game files).
 
-**Untested to any kind of provisioning. Currently needs actual testing.**
+To delete the provisioned instance:
+
+```bash
+terraform destroy -var "api_key=XXX"
+```
+
+## Note
+
+Tested provisioning on Vultr.
