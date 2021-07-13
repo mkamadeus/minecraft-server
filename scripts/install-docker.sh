@@ -2,7 +2,7 @@
 
 # Install required dependencies
 sudo apt-get update
-sudo apt-get install \
+sudo apt-get -y install \
   apt-transport-https \
   ca-certificates \
   curl \
@@ -16,7 +16,7 @@ echo \
 
 # Install Docker Engine
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 # Install docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose

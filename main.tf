@@ -20,25 +20,52 @@ resource "vultr_instance" "minecraft" {
   label    = var.label
   tag      = var.tag
   hostname = var.hostname
+  firewall_group_id = vultr_firewall_group.minecraft_firewall_group.id
+  ssh_key_ids = ["${vultr_ssh_key.minecraft_ssh_key.id}"]
 
   # Make zip of required files
   provisioner "local-exec" {
-    command = "zip game.zip config datapacks mods scripts docker-compose.yml .env"
+    command = "zip game.zip config datapacks mods docker-compose.yml .env"
   }
 
-  # Copy zip
+  # Copy scripts folder
+  provisioner "file" {
+    source      = "./scripts"
+    destination = "~/scripts"
+
+    connection {
+      type     = "ssh"
+      user     = "root"
+      host     = "${self.main_ip}"
+      password = "${self.default_password}"
+    }
+  }
+
+  # Copy game zip
   provisioner "file" {
     source      = "./game.zip"
     destination = "~/game.zip"
+
+    connection {
+      type     = "ssh"
+      user     = "root"
+      host     = "${self.main_ip}"
+      password = "${self.default_password}"
+    }
   }
 
   provisioner "remote-exec" {
     scripts = [
-      "~/scripts/install-docker.sh",
-      "~/scripts/setup-minecraft.sh"
+      "./scripts/install-docker.sh",
+      "./scripts/setup-minecraft.sh"
     ]
+    connection {
+      type     = "ssh"
+      user     = "root"
+      host     = "${self.main_ip}"
+      password = "${self.default_password}"
+    }
   }
-
 }
 
 resource "vultr_instance_ipv4" "minecraft_ipv4" {
@@ -59,6 +86,16 @@ resource "vultr_firewall_rule" "minecraft_firewall_rule" {
   subnet_size       = 0
   port              = "25565"
   notes             = "Minecraft basic TCP firewall rule"
+}
+
+resource "vultr_firewall_rule" "ssh_firewall_rule" {
+  firewall_group_id = vultr_firewall_group.minecraft_firewall_group.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "22"
+  notes             = "Server SSH firewall rule"
 }
 
 # SSH keys

@@ -12,13 +12,13 @@ variable "plan" {
 variable "region" {
   type        = string
   description = "Vultr instance region slug"
-  default     = "sea"
+  default     = "sgp"
 }
 
 variable "os_id" {
   type        = string
   description = "Vultr OS ID slug"
-  default     = "167"
+  default     = "387"
 }
 
 variable "label" {
