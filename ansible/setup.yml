@@ -6,7 +6,7 @@
 
   tasks:
     - name: archive server files
-      shell: zip ../server.zip ../docker-compose.yml ../mods ../config
+      shell: zip ../server.zip ../docker-compose.yml ../.env ../datapacks ../mods ../config
     - name: copy server zip to remote
       ansible.builtin.copy:
         src: ../server.zip
