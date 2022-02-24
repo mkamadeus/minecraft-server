@@ -1,0 +1,22 @@
+# Setup server
+---
+- name: setup server for the first time
+  hosts: all
+  become: true
+
+  tasks:
+    - name: archive server files
+      shell: zip ../server.zip ../docker-compose.yml ../mods ../config
+    - name: copy server zip to remote
+      ansible.builtin.copy:
+        src: ../server.zip
+        dest: /root
+    - name: unarchive server
+      ansible.builtin.unarchive:
+        src: /root/server.zip
+        dest: /root
+        remote_src: yes
+    - name: run docker-compose to run server
+      community.docker.docker_compose:
+        project_src: /root
+        build: no

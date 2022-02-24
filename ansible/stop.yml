@@ -1,0 +1,11 @@
+# Stop server
+---
+- name: stop server
+  hosts: all
+  become: true
+
+  tasks:
+    - name: run docker-compose to stop server
+      community.docker.docker_compose:
+        project_src: /root
+        state: absent

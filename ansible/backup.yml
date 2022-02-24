@@ -1,0 +1,16 @@
+# Backup world
+---
+- name: setup server for the first time
+  hosts: all
+  become: true
+
+  tasks:
+    - name: archive world in server
+      community.general.archive:
+        path: /root/data/world
+        format: zip
+        dest: /root/world.zip
+    - name: copy world zip to local
+      ansible.builtin.fetch:
+        src: /root/world.zip
+        dest: ../world.zip

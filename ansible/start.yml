@@ -1,0 +1,12 @@
+# Start server
+---
+- name: stop server
+  hosts: all
+  become: true
+
+  tasks:
+    - name: run docker-compose to start server
+      community.docker.docker_compose:
+        project_src: /root
+        build: no
+        state: present
