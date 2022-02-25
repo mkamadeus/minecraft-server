@@ -1,6 +1,6 @@
 # Setup server
 ---
-- name: setup server for the first time
+- name: setup server files
   hosts: minecraft
 
   tasks:
@@ -18,6 +18,16 @@
       ansible.builtin.copy:
         src: ../server.tgz
         dest: "{{ remote_path }}"
+    - name: check if world folder is supploed
+      delegate_to: localhost
+      stat:
+        path: ../world
+      register: register_name
+    - name: copy world to remote
+      ansible.builtin.copy:
+        src: ../world
+        dest: "{{ remote_path }}/data/"
+      when: register_name.stat.exists
     - name: unarchive server
       ansible.builtin.unarchive:
         src: "{{ remote_path }}/server.tgz"

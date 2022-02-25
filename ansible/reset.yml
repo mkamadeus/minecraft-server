@@ -1,0 +1,10 @@
+# Reset server
+---
+- name: reset server files
+  hosts: minecraft
+
+  tasks:
+    - name: delete server data
+      file:
+        state: absent
+        path: "{{ remote_path }}/data/"
