@@ -1,11 +1,10 @@
 # Stop server
 ---
 - name: stop server
-  hosts: all
-  become: true
+  hosts: minecraft
 
   tasks:
     - name: run docker-compose to stop server
       community.docker.docker_compose:
-        project_src: /root
+        project_src: "{{ remote_path }}"
         state: absent

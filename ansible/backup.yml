@@ -1,16 +1,15 @@
 # Backup world
 ---
 - name: setup server for the first time
-  hosts: all
-  become: true
+  hosts: minecraft
 
   tasks:
     - name: archive world in server
       community.general.archive:
-        path: /root/data/world
+        path: "{{ remote_path }}/data/world"
         format: zip
-        dest: /root/world.zip
+        dest: "{{ remote_path }}/world.zip"
     - name: copy world zip to local
       ansible.builtin.fetch:
-        src: /root/world.zip
-        dest: ../world.zip
+        src: "{{ remote_path }}/world.zip"
+        dest: ../backups

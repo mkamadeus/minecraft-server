@@ -1,22 +1,25 @@
 # Setup server
 ---
 - name: setup server for the first time
-  hosts: all
-  become: true
+  hosts: minecraft
 
   tasks:
     - name: archive server files
-      shell: zip ../server.zip ../docker-compose.yml ../.env ../datapacks ../mods ../config
+      delegate_to: localhost
+      ansible.builtin.archive:
+        path:
+          - ../docker-compose.yml
+          - ../.env
+          - ../datapacks
+          - ../mods
+          - ../config
+        dest: "../server.tgz"
     - name: copy server zip to remote
       ansible.builtin.copy:
-        src: ../server.zip
-        dest: /root
+        src: ../server.tgz
+        dest: "{{ remote_path }}"
     - name: unarchive server
       ansible.builtin.unarchive:
-        src: /root/server.zip
-        dest: /root
+        src: "{{ remote_path }}/server.tgz"
+        dest: "{{ remote_path }}"
         remote_src: yes
-    - name: run docker-compose to run server
-      community.docker.docker_compose:
-        project_src: /root
-        build: no
