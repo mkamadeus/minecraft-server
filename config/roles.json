@@ -1,0 +1,32 @@
+{
+    "admin": {
+        "level": 100,
+        "overrides": {
+            "name_style": [
+                "red",
+                "bold"
+            ],
+            "chat_format": "<%s*> %s",
+            "commands": {
+                ".*": "allow"
+            }
+        }
+    },
+    "everyone": {
+        "overrides": {
+            "name_style": [
+                "yellow"
+            ],
+            "chat_format": "<%s> %s",
+            "commands": {
+                "help": "allow",
+                "seed": "allow",
+                "player .*": "allow",
+                "tell .*": "allow",
+                "whisper .*": "allow",
+                "msg .*": "allow",
+                ".*": "deny"
+            }
+        }
+    }
+}
