@@ -11,11 +11,12 @@ Achieved by using `ansible`.
 
 ### Features
 
-- Using the [itzg/minecraft-server](https://github.com/itzg/docker-minecraft-server/) image
-- Easy to change configuration via `.env`
-- Able to use mods and datapacks easily by inserting them to respective folders
-- Backup of worlds
-- Ability to start and stop server remotely
+- Using the [itzg/minecraft-server](https://github.com/itzg/docker-minecraft-server/) image.
+- Easy to change configuration via `.env`.
+- Able to use mods and datapacks easily by inserting them to respective folders.
+- Backup of worlds in remote server.
+- The ability to start and stop server remotely
+- Able to run locally and do tunneling via [ngrok](https://ngrok.com/) using the [wernight/ngrok](https://github.com/wernight/ngrok) image.
 
 ### Requirements
 
@@ -29,6 +30,23 @@ On remote machine:
 - Zipping utility (`zip` or `tar`)
 - Docker and docker-compose
 - Python 3 & Python Docker API (`pip install docker`)
+
+> :information_source: Don't forget to setup your environment variables like in the one supplied on `.env.example`.
+
+### Running Manually
+
+Use:
+
+```bash
+docker-compose up
+```
+
+If running with proxy, use:
+
+```bash
+# setup your ngrok account on https://dashboard.ngrok.com/
+docker-compose -f docker-compose.proxy.yml up
+```
 
 ### Provisioning Server
 
@@ -46,6 +64,6 @@ Commands:
 # backup -- zipping world in remote and copy to local
 ```
 
-## Future Goal
+## Future Work
 
 - Able to switch between worlds.

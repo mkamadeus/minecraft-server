@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  mcserver:
+    image: itzg/minecraft-server
+    container_name: mcserver
+    env_file: .env
+    ports:
+      - "25565:${PORT}"
+      - "25575:25575"
+    volumes:
+      - "./data:/data"
+      - "./mods:/data/mods"
+      - "./config:/data/config"
+      - "./datapacks:/data/world/datapacks"
+    networks:
+      - internal
+  proxy:
+    image: wernight/ngrok
+    container_name: proxy
+    env_file: .env
+    environment:
+      - NGROK_PROTOCOL=TCP
+      - NGROK_PORT=mcserver:${PORT}
+    networks:
+      - internal
+networks:
+  internal:
+    driver: bridge
