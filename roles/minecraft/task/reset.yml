@@ -7,4 +7,4 @@
     - name: delete server data
       file:
         state: absent
-        path: "{{ remote_path }}/data/"
+        path: ~/data/

@@ -6,5 +6,5 @@
   tasks:
     - name: run docker-compose to stop server
       community.docker.docker_compose:
-        project_src: "{{ remote_path }}"
+        project_src: "~"
         state: absent

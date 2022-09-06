@@ -1,7 +1,6 @@
 # My Personal Minecraft Server Setup
 
-![Minecraft](https://img.shields.io/badge/Minecraft-1.18.1-green?logo=minecraft)
-![tf badge](https://img.shields.io/badge/Ansible-2.9.6-lightgray?logo=ansible)
+![Minecraft](https://img.shields.io/badge/Minecraft-1.19.2-green?logo=minecraft)
 ![docker badge](https://img.shields.io/badge/Docker-20.10.6-blue?logo=docker)
 
 ### Aim
@@ -17,6 +16,17 @@ Achieved by using `ansible`.
 - Backup of worlds in remote server.
 - The ability to start and stop server remotely
 - Able to run locally and do tunneling via [ngrok](https://ngrok.com/) using the [wernight/ngrok](https://github.com/wernight/ngrok) image.
+
+### Mod List
+
+Currently experimenting using Quilt Modloader, which is highly compatible with Fabric mods. Mods may change and depend on the Minecraft version used, but most of the mods are made sure to be available on a certain version.
+
+- Carpet Mod (utility mod for technical stuff)
+- Krypton (network optimization)
+- LazyDFU (memory optimization)
+- FerriteCore (memory optimization)
+- Lithium (general optimization)
+- Starlight (light-transport optimization)
 
 ### Requirements
 
@@ -64,6 +74,6 @@ Commands:
 # backup -- zipping world in remote and copy to local
 ```
 
-## Future Work
+### Future Work
 
 - Able to switch between worlds.

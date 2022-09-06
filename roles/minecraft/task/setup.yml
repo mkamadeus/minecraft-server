@@ -8,28 +8,28 @@
       delegate_to: localhost
       ansible.builtin.archive:
         path:
-          - ../docker-compose.yml
-          - ../.env
-          - ../datapacks
-          - ../mods
-          - ../config
-        dest: "../server.tgz"
+          - docker-compose.yml
+          - .env
+          - datapacks
+          - modpack
+          - config
+        dest: server.tgz
     - name: copy server zip to remote
       ansible.builtin.copy:
-        src: ../server.tgz
-        dest: "{{ remote_path }}"
-    - name: check if world folder is supploed
+        src: server.tgz
+        dest: ~
+    - name: check if world folder is supplied
       delegate_to: localhost
       stat:
-        path: ../world
+        path: world
       register: register_name
     - name: copy world to remote
       ansible.builtin.copy:
-        src: ../world
-        dest: "{{ remote_path }}/data/"
+        src: world
+        dest: ~/data/
       when: register_name.stat.exists
     - name: unarchive server
       ansible.builtin.unarchive:
-        src: "{{ remote_path }}/server.tgz"
-        dest: "{{ remote_path }}"
+        src: ~/server.tgz
+        dest: ~/
         remote_src: yes
