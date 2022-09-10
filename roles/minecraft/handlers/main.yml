@@ -1,0 +1,6 @@
+---
+- name: restart
+  community.docker.docker_compose:
+    project_src: "~"
+    build: no
+    restarted: yes

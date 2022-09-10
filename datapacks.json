@@ -1,0 +1,19 @@
+{
+	"type": "datapacks",
+	"version": "1.19.2",
+	"packs": {
+		"survival": [
+			"unlock all recipes",
+			"afk display"
+		],
+		"hermitcraft": [
+			"wandering trades"
+		],
+		"mobs": [
+			"more mob heads"
+		],
+		"items": [
+			"player head drops"
+		]
+	}
+}

@@ -1,10 +1,6 @@
 # Stop server
 ---
-- name: stop server
-  hosts: minecraft
-
-  tasks:
-    - name: run docker-compose to stop server
-      community.docker.docker_compose:
-        project_src: "~"
-        state: absent
+- name: run docker-compose to stop server
+  community.docker.docker_compose:
+    project_src: "~"
+    state: absent

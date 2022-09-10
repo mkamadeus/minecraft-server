@@ -6,12 +6,6 @@
     tags:
       - backup
 - include_tasks:
-    file: reset.yml
-    apply:
-      tags: reset
-    tags:
-      - reset
-- include_tasks:
     file: setup.yml
     apply:
       tags: setup

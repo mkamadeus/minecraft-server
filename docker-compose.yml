@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   mcserver:
-    image: itzg/minecraft-server:latest
+    image: itzg/minecraft-server:java17-alpine
     container_name: mcserver
     env_file: .env
     ports:
@@ -9,6 +9,11 @@ services:
       - "25575:25575"
     volumes:
       - "./data:/data"
-      - "./modpack:/data/modpack"
-      - "./config:/data/config"
-      - "./datapacks:/data/world/datapacks"
+      - "./modpack:/modpack"
+      - "./config:/config"
+      - "./datapacks.json:/datapacks.json"
+    healthcheck:
+      test: mc-health
+      start_period: 1m
+      interval: 1m
+      retries: 20

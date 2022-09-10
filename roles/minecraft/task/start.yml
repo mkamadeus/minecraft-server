@@ -1,11 +1,7 @@
 # Start server
 ---
-- name: stop server
-  hosts: minecraft
-
-  tasks:
-    - name: run docker-compose to start server
-      community.docker.docker_compose:
-        project_src: "~"
-        build: no
-        state: present
+- name: run docker-compose to start server
+  community.docker.docker_compose:
+    project_src: "~"
+    build: no
+    state: present
