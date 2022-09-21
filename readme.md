@@ -24,6 +24,7 @@ Currently experimenting using Quilt Modloader, which is highly compatible with F
 - Carpet Mod (utility mod for technical stuff)
 - Krypton (network optimization)
 - LazyDFU (memory optimization)
+- MemoryLeakFix (memory optimization)
 - FerriteCore (memory optimization)
 - Lithium (general optimization)
 - Starlight (light-transport optimization)
@@ -41,7 +42,8 @@ On remote machine:
 - Docker and docker-compose
 - Python 3 & Python Docker API (`pip install docker`)
 
-> :information_source: Don't forget to setup your environment variables like in the one supplied on `.env.example`.
+> **Note**
+> Don't forget to setup your environment variables like in the one supplied on `.env.example` locally on `.env`.
 
 ### Running Manually
 
@@ -73,7 +75,3 @@ Commands:
 # reset -- resetting server files and configs in remote
 # backup -- zipping world in remote and copy to local
 ```
-
-### Future Work
-
-- Able to switch between worlds.
