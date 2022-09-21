@@ -9,21 +9,12 @@
       - datapacks
       - modpack
       - config
+      - worlds
     dest: server.tgz
 - name: copy server zip to remote
   ansible.builtin.copy:
     src: server.tgz
     dest: ~
-- name: check if world folder is supplied
-  delegate_to: localhost
-  stat:
-    path: world
-  register: register_name
-- name: copy world to remote
-  ansible.builtin.copy:
-    src: world
-    dest: ~/data/
-  when: register_name.stat.exists
 - name: unarchive server
   ansible.builtin.unarchive:
     src: ~/server.tgz
