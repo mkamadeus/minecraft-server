@@ -28,6 +28,9 @@ Currently experimenting using Quilt Modloader, which is highly compatible with F
 - FerriteCore (memory optimization)
 - Lithium (general optimization)
 - Starlight (light-transport optimization)
+- Fabric Chunk Pregenerator (to pregenerate chunks before exploring)
+
+Extra mods and datapacks for world generation are listed in the directory. Feel free to remove if not wanted.
 
 ### Requirements
 
