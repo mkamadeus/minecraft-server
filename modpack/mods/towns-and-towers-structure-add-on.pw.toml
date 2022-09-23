@@ -1,0 +1,14 @@
+name = "Towns and Tower - Structure Add-on"
+filename = "Towns-and-Towers-1.19-1.8.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/DjLobEOy/versions/1.8.2/Towns-and-Towers-1.19-1.8.2.jar"
+hash-format = "sha1"
+hash = "c7ee1e9b6a2b4602066d01ac228dd6b2b10cb305"
+mode = ""
+
+[update]
+[update.modrinth]
+mod-id = "DjLobEOy"
+version = "NpbTlN8o"

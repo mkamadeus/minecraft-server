@@ -10,6 +10,7 @@ services:
     volumes:
       - "./data:/data"
       - "./modpack:/modpack"
+      - "./mods:/mods"
       - "./datapacks:/datapacks"
       - "./config:/config"
       - "./datapacks.json:/datapacks.json"

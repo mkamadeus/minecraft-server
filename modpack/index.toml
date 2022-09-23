@@ -6,6 +6,16 @@ hash = "4a7dc34ea75dda18719bdcee7fdb23a48c53142b57df960ffffbca652fc6b95a"
 metafile = true
 
 [[files]]
+file = "mods/chunk-pregenerator-fabric.pw.toml"
+hash = "a2c081a9c021ec3887f4d0476ca06e0c038c4b04e5550ccaa4bcd28a4e451c17"
+metafile = true
+
+[[files]]
+file = "mods/fabric-api.pw.toml"
+hash = "4c71686503225e97812bb5bb0b0022ec5144b4936344c99f3b4d3edaaf16f755"
+metafile = true
+
+[[files]]
 file = "mods/ferrite-core.pw.toml"
 hash = "1d87f8c04eeed21a9544cfad7f64afee6de58b5249a70b0367ba8522273a4816"
 metafile = true
@@ -33,4 +43,14 @@ metafile = true
 [[files]]
 file = "mods/starlight.pw.toml"
 hash = "7b110f0f87bb5f21381cc9c2338be6689219a36ef13cb34c22e745df4e6afbff"
+metafile = true
+
+[[files]]
+file = "mods/terralith.pw.toml"
+hash = "1db39b02058416cfc63be3982ee3d9b2a1a77d22d6ae562c17787ca7e9bacb9a"
+metafile = true
+
+[[files]]
+file = "mods/towns-and-towers-structure-add-on.pw.toml"
+hash = "bec28a4b4000894bf171694664bcfd73fbd73610fdba7ce4e78826c251df5645"
 metafile = true
