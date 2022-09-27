@@ -5,8 +5,8 @@
 
 ### Aim
 
-Able to automate the provisioning of a Fabric Minecraft Server with datapacks, mods, configuration, etc.
-Achieved by using `ansible`.
+- Able to automate the provisioning of a Fabric Minecraft Server with datapacks, mods, configuration, etc. This is achieved by using `ansible` and maybe several other IaC tools.
+- Able to provision an efficient Vanilla+ server (retaining Vanilla mechanics without changing content too much)
 
 ### Features
 
@@ -71,7 +71,7 @@ Example has been provided in `hosts.example`.
 Commands:
 
 ```bash
-./bootstrap.sh (setup|start|stop|reset|backup)
+./bootstrap.sh <private-key-location> (setup|start|stop|reset|backup)
 # setup -- setting up server files, copying from local to remote
 # start -- starting server (aka docker-compose up)
 # stop -- stopping server (aka docker-compose down)

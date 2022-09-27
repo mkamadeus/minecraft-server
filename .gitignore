@@ -10,3 +10,5 @@
 *.pem
 
 backups/
+
+hosts

@@ -1,6 +1,14 @@
 ---
 - name: restart
+  become: false
+  become_user: "{{ username }}"
   community.docker.docker_compose:
-    project_src: "~"
+    project_src: "/home/{{ username }}/"
     build: no
     restarted: yes
+- name: stop
+  become: false
+  become_user: "{{ username }}"
+  community.docker.docker_compose:
+    project_src: "/home/{{ username }}/"
+    state: absent

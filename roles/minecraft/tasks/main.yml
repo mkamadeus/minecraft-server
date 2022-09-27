@@ -1,0 +1,31 @@
+---
+- include_tasks: backup.yml
+  args:
+    apply:
+      tags: backup
+  tags:
+    - backup
+- include_tasks: setup.yml
+  args:
+    apply:
+      tags: setup
+  tags:
+    - setup
+- include_tasks: start.yml
+  args:
+    apply:
+      tags: start
+  tags:
+    - start
+- include_tasks: stop.yml
+  args:
+    apply:
+      tags: stop
+  tags:
+    - stop
+- include_tasks: reset.yml
+  args:
+    apply:
+      tags: reset
+  tags:
+    - reset

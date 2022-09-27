@@ -1,0 +1,6 @@
+# delete server data
+---
+- name: delete server data
+  file:
+    state: absent
+    path: "/home/{{ username }}/data"

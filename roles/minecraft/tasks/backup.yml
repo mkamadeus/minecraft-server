@@ -2,10 +2,10 @@
 ---
 - name: archive world in server
   community.general.archive:
-    path: "~/data/world"
+    path: "/home/{{ username }}/data/world"
     format: zip
-    dest: "~/{{ ansible_date_time.epoch }}.zip"
+    dest: "/home/{{ username }}/{{ ansible_date_time.epoch }}.zip"
 - name: copy world zip to local
   ansible.builtin.fetch:
-    src: "~/{{ ansible_date_time.epoch }}.zip"
+    src: "/home/{{ username }}/{{ ansible_date_time.epoch }}.zip"
     dest: backups
