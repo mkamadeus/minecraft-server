@@ -10,8 +10,11 @@ services:
     volumes:
       - "./data:/data"
       - "./modpack:/modpack"
+      - "./mods:/mods"
+      - "./datapacks:/datapacks"
       - "./config:/config"
-      - "./datapacks.json:/datapacks.json"
+      - "./config/carpet.conf:/data/world/carpet.conf"
+      - "./config/carpet-fixes.conf:/data/world/carpet-fixes.conf"
     healthcheck:
       test: mc-health
       start_period: 1m

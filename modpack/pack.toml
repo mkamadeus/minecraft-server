@@ -1,13 +1,13 @@
 name = "mkamadeus-survival-server-modpack"
 author = "mkamadeus"
-version = "1.0.0"
+version = "1.1.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "c9951d98ec697a5f0e0b89a7f545ea6c9b24e68dbabcb56196977131edaedcdd"
+hash = "b68c5441656942f214df4db95a170e4f77f5a69877e585d184355d34cc2ea2a9"
 
 [versions]
-fabric = "0.14.9"
-minecraft = "1.19.2"
+fabric = "0.14.19"
+minecraft = "1.19.4"
