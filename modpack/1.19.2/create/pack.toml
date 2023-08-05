@@ -1,0 +1,13 @@
+name = "mkamadeus with Create"
+author = "mkamadeus"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "1245ea6875141cb0c950596dcee70cd4b28142061b2b56c9d1fa95173fd0fdde"
+
+[versions]
+fabric = "0.14.21"
+minecraft = "1.19.2"
