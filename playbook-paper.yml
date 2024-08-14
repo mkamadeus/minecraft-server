@@ -1,0 +1,5 @@
+---
+- hosts: minecraft
+  become: true
+  roles:
+    - role: paper

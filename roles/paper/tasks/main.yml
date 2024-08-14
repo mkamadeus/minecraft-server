@@ -1,0 +1,70 @@
+---
+- name: Add group
+  ansible.builtin.group:
+    name: "{{ username }}"
+    state: present
+
+- name: Add user minecraft
+  ansible.builtin.user:
+    name: "{{ username }}"
+    comment: user for running minecraft server
+    create_home: true
+    shell: /bin/bash
+    state: present
+    group: "{{ username }}"
+
+- name: Create directory for server
+  ansible.builtin.file:
+    path: "/home/{{ username }}/minecraft-paper"
+    state: directory
+    mode: "0744"
+
+- name: Copy Java Download scripts
+  ansible.builtin.copy:
+    src: java.sh
+    dest: "/home/{{ username }}/minecraft-paper/java.sh"
+    mode: "0744"
+    owner: "{{ username }}"
+  become: true
+
+- name: Copy startup scripts
+  ansible.builtin.copy:
+    src: start.sh
+    dest: "/home/{{ username }}/minecraft-paper/start.sh"
+    mode: "0744"
+    owner: "{{ username }}"
+  become: true
+
+- name: Copy downloads scripts
+  ansible.builtin.copy:
+    src: latest.sh
+    dest: "/home/{{ username }}/minecraft-paper/latest.sh"
+    mode: "0744"
+    owner: "{{ username }}"
+  become: true
+
+- name: Download Latest Java
+  become: true
+  ansible.builtin.shell:
+    chdir: "/home/{{ username }}/minecraft-paper"
+    cmd: ./java.sh
+
+- name: Download latest paper jar
+  become: true
+  ansible.builtin.shell:
+    chdir: "/home/{{ username }}/minecraft-paper"
+    cmd: ./latest.sh
+
+- name: Run Server
+  become: true
+  ansible.builtin.shell:
+    chdir: "/home/{{ username }}/minecraft-paper"
+    cmd: ./start.sh
+
+- name: Update eula.txt to accept license
+  become: true
+  become_user: "{{ username }}"
+  ansible.builtin.replace:
+    path: "/home/{{ username }}/minecraft-paper/eula.txt"
+    regexp: 'eula=false'
+    replace: 'eula=true'
